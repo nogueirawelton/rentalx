@@ -7,7 +7,7 @@
 
 ## 💻 Projeto
 
-Serviço de aluguel de carros
+Serviço de aluguel de carros.
 
 ## ✨ Tecnologias
 
