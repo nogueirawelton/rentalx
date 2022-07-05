@@ -1,0 +1,120 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "RentalX Documentation",
+    "description": "This is an API Rent",
+    "version": "1.0.0",
+    "contact": {
+      "email": "welton.nogueira.dev@gmail.com"
+    }
+  },
+  "paths": {
+    "/categories": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Create a Category",
+        "description": "Create a New Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Category Name Sample",
+                  "description": "Category Description Sample"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category Already Exists!"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Category"],
+        "summary": "List All Categories",
+        "description": "List All Categories",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/definitions/Category"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Upload New Categories",
+        "description": "Upload New Categories",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Category": {
+      "type": "array",
+      "items": {
+        "type":"object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
