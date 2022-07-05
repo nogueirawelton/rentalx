@@ -28,4 +28,47 @@ export class RentalsRepository implements IRentalsRepository {
     });
     return rental;
   }
+
+  async findById(id: string): Promise<Rental> {
+    const rental = await prisma.rental.findUnique({
+      where: {
+        id,
+      },
+    });
+    return rental;
+  }
+
+  async closeRental(id: string, total: number): Promise<Rental> {
+    const rental = await prisma.rental.update({
+      where: {
+        id,
+      },
+      data: {
+        total,
+        end_date: new Date(),
+        updatedAt: new Date(),
+      },
+    });
+    return rental;
+  }
+
+  async findByUser(user_id: string): Promise<Rental[]> {
+    const rentals = await prisma.rental.findMany({
+      where: {
+        user_id,
+      },
+      select: {
+        id: true,
+        start_date: true,
+        end_date: true,
+        expected_return_date: true,
+        total: true,
+        createdAt: true,
+        updatedAt: true,
+        user_id: true,
+        car: true,
+      },
+    });
+    return rentals;
+  }
 }

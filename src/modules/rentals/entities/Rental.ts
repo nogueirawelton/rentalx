@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export class Rental {
   id?: string;
-  car_id: string;
+  car_id?: string;
   user_id: string;
   start_date?: Date;
   end_date?: Date;

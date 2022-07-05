@@ -20,17 +20,17 @@ describe("Create Specification", () => {
     });
     expect(specification).toHaveProperty("id");
   });
-  it("Should not be able to create a existent specification", () => {
-    expect(async () => {
-      await createSpecificationUseCase.execute({
-        name: "Example Name",
-        description: "Description Example",
-      });
+  it("Should not be able to create a existent specification", async () => {
+    await createSpecificationUseCase.execute({
+      name: "Example Name",
+      description: "Description Example",
+    });
 
-      await createSpecificationUseCase.execute({
+    await expect(
+      createSpecificationUseCase.execute({
         name: "Example Name",
         description: "Description Example",
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      })
+    ).rejects.toEqual(new AppError("Specification Already Exists!"));
   });
 });

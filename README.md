@@ -21,19 +21,18 @@ Serviço de aluguel de carros.
 - [ ] Swagger
 - [ ] Jest
 
-
 ## :hammer_and_wrench: Requisitos
 
 ### Cadastro de Carro
 
-#### Requisitos Funcionais 
+#### Requisitos Funcionais
 
 - Deve ser possível cadastrar um novo carro.
 
 #### Regras de Negócio
 
 - Não deve ser possível cadastrar um carro com uma placa já existente.
-- Não deve ser possível cadastrar um carro se o usuário não for administrador *.
+- Não deve ser possível cadastrar um carro se o usuário não for administrador \*.
 - Deve se cadastrar um carro com disponibilidade por padrão.
 
 ### Listagem de Carros
@@ -90,6 +89,34 @@ Serviço de aluguel de carros.
 - Não deve ser possível cadastrar um aluguel com duração menor que 24 horas.
 - Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para um mesmo usuário.
 - Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para um mesmo carro.
+- O usuário deve estar logado na aplicação
+- Ao realizar um aluguel, o status do carro deverá ser alterado para indisponível.
+
+### Devolução de Carro
+
+#### Requisito Funcional
+
+- Deve ser possível realizar a devolução de um carro.
+
+#### Regras de Negócio
+
+- Se o carro for devolvido com menos de 24 horas, deverá ser cobrado a diária completa.
+- Ao realizar a devolução, o carro deverá ser liberado para outro aluguel.
+- Ao realizar a devolução, o usuário deverá ser liberado para outro aluguel.
+- Ao realizar a devolução, deverá ser calculado o total do aluguel.
+- Caso o horário de devolução seja superior ao horário previsto de entrega, deverá ser cobrado multa proporcional aos dias de atraso.
+- Caso haja multa, deverá ser somado ao total do aluguel.
+- O usuário deve estar logado na aplicação.
+
+### Listagem de aluguéis para usuário
+
+#### Requisito Funcional
+
+- Deve ser possível realizar a busca de todos os alugueis para um usuário.
+
+#### Regras de Negócio
+
+- O usuário deve estar logado na aplicação.
 
 ### Executando o projeto
 
