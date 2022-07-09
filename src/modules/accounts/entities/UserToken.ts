@@ -4,7 +4,7 @@ export class UserToken {
   id?: string;
   refresh_token: string;
   user_id: string;
-  expires_Date: Date;
+  expires_date: Date;
   created_at?: Date;
 
   constructor() {

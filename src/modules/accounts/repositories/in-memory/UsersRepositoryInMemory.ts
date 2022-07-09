@@ -26,4 +26,9 @@ export class UsersRepositoryInMemory implements IUsersRepository {
     const user = this.users.find((user) => user.id === id);
     return user;
   }
+
+  async updatePassword(id: string, newPass: string): Promise<void> {
+    const user = this.users.find((user) => user.id === id);
+    user.password = newPass;
+  }
 }

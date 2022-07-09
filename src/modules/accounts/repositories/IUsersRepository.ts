@@ -6,4 +6,5 @@ export interface IUsersRepository {
   updateAvatar(user_id: string, avatar_file: string): Promise<void>;
   findByEmail(email: string): Promise<User>;
   findById(id: string): Promise<User>;
+  updatePassword(id: string, newPass: string): Promise<void>;
 }

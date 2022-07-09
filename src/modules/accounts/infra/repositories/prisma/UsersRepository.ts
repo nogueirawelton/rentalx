@@ -21,24 +21,31 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async findByEmail(email: string): Promise<User> {
-    const user = await prisma.user
-      .findUnique({
-        where: {
-          email,
-        },
-      })
-      .then((user) => user);
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
     return user;
   }
 
   async findById(id: string): Promise<User> {
-    const user = await prisma.user
-      .findUnique({
-        where: {
-          id,
-        },
-      })
-      .then((user) => user);
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+    });
     return user;
+  }
+
+  async updatePassword(id: string, newPass: string): Promise<void> {
+    await prisma.user.update({
+      where: {
+        id,
+      },
+      data: {
+        password: newPass,
+      },
+    });
   }
 }
