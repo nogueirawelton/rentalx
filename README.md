@@ -20,6 +20,8 @@ Serviço de aluguel de carros.
 - [ ] PostgreSQL
 - [ ] Swagger
 - [ ] Jest
+- [ ] Nodemailer
+- [ ] AWS S3
 
 ## :hammer_and_wrench: Requisitos
 
@@ -117,7 +119,6 @@ Serviço de aluguel de carros.
 #### Regras de Negócio
 
 - O usuário deve estar logado na aplicação.
-
 
 ### Recuperação de Senha
 
