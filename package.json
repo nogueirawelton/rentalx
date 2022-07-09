@@ -7,7 +7,7 @@
     "dev": "ts-node-dev -r tsconfig-paths/register --poll --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
     "test": "jest --runInBand",
     "seed:admin": "ts-node-dev src/shared/infra/seed/admin.ts",
-    "build": "prisma migrate seed:admin"
+    "build": "prisma generate seed:admin"
   },
   "dependencies": {
     "@prisma/client": "^3.15.2",
