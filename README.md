@@ -20,7 +20,7 @@ Serviço de aluguel de carros.
 - [ ] PostgreSQL
 - [ ] Swagger
 - [ ] Jest
-- [ ] Nodemailer
+- [ ] Nodemailer/MailTrap
 - [ ] AWS S3
 
 ## :hammer_and_wrench: Requisitos
