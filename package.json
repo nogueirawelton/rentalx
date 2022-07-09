@@ -8,7 +8,7 @@
     "test": "jest --runInBand",
     "seed:admin": "ts-node-dev src/shared/infra/seed/admin.ts",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
-    "start": "pm2 start rentalx_api"
+    "start": "pm2 start dist/shared/infra/http/server.js rentalx_api"
   },
   "dependencies": {
     "@prisma/client": "^3.15.2",
