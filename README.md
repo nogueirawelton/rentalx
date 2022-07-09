@@ -22,7 +22,6 @@ Serviço de aluguel de carros.
 - [ ] Jest
 - [ ] Nodemailer/MailTrap
 - [ ] AWS S3
-- [] PM2
 
 ## :hammer_and_wrench: Requisitos
 
