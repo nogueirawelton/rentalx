@@ -1,9 +1,10 @@
-import "dotenv/config";
+import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
-import "express-async-errors";
 import swaggerui from "swagger-ui-express";
-import "reflect-metadata";
 
+import "dotenv/config";
+import "express-async-errors";
+import "reflect-metadata";
 import "@shared/container";
 import upload from "@config/upload";
 import { AppError } from "@shared/errors/AppError";
@@ -15,6 +16,7 @@ export const app = express();
 
 app.use(express.json());
 app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerDocument));
+app.use(cors());
 app.use(router);
 app.use("/avatar", express.static(`${upload.tmpFolder}/avatar`));
 app.use("/avatar", express.static(`${upload.tmpFolder}/cars`));
